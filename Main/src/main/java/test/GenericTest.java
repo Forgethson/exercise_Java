@@ -1,3 +1,6 @@
+/**
+ * 测试泛型擦除
+ */
 package test;
 
 import com.google.gson.Gson;
