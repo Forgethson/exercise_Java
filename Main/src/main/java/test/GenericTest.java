@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Main {
+public class GenericTest {
     public static void main(String[] args) throws NoSuchFieldException {
         // 获得声明的泛型信息
         Type superType = AppleContainer.class.getGenericSuperclass();
