@@ -1,4 +1,4 @@
-package src.main.java.test;
+package test;
 
 /**
  * 测试synchronized关键字

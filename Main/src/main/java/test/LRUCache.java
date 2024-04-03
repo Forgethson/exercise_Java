@@ -1,4 +1,4 @@
-package src.main.java.test;
+package test;
 
 import java.util.HashMap;
 import java.util.concurrent.*;

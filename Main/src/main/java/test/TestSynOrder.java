@@ -1,4 +1,4 @@
-package src.main.java.test;
+package test;
 
 /**
  * 获取锁的顺序，是按照等待锁的顺序的逆序来的

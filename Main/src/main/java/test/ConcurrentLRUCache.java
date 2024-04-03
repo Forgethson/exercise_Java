@@ -1,4 +1,4 @@
-package src.main.java.test;
+package test;
 
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedDeque;
