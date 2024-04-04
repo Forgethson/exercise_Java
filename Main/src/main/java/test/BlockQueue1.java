@@ -29,20 +29,20 @@ public class BlockQueue1 {
 
     public synchronized void produce(int val) throws InterruptedException {
         // while？
-        if (size == capacity) {
+        while (size == capacity) {
             this.wait();
             System.out.println("唤醒生产者，此时size=" + size);
         }
         tail.next = new Node(val);
         tail = tail.next;
-        // 先释放资源，再唤醒？
+        // 先释放资源，再唤醒？无所谓，就算唤醒了也得拿到锁再说
         size++;
-        this.notify();
+        this.notifyAll();
     }
 
     public synchronized int consume() throws InterruptedException {
         // while？
-        if (size == 0) {
+        while (size == 0) {
             this.wait();
             System.out.println("唤醒消费者，此时size=" + size);
         }
@@ -51,8 +51,18 @@ public class BlockQueue1 {
         tmp.next = null;
         // 先释放资源，再唤醒？
         size--;
-        this.notify();
+        this.notifyAll();
         return tmp.val;
+    }
+
+    @Override
+    public String toString() {
+        return "BlockQueue1{" +
+                "head=" + head +
+                ", tail=" + tail +
+                ", size=" + size +
+                ", capacity=" + capacity +
+                '}';
     }
 
     public static void main(String[] args) throws InterruptedException {
@@ -91,5 +101,7 @@ public class BlockQueue1 {
 //        Thread.sleep(1000);
 //        consumerThread.start();
 
+        Thread.sleep(3000);
+        System.out.println(blockQueue1);
     }
 }
