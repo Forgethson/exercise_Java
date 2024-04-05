@@ -1,25 +1,19 @@
 package test;
 
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 class Solution {
-    static boolean run = true;    //添加volatile
-    public static void main(String[] args) throws InterruptedException {
-        Thread t = new Thread(()->{
-            while(run){
-                try {
-                    TimeUnit.MILLISECONDS.sleep(500);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-//                System.out.println("运行中...");
+    public int minimumTotal(List<List<Integer>> triangle) {
+        int[] dp = new int[triangle.size() + 1];
+        for (int i = triangle.size() - 1; i >= 0; i--) {
+            for (int j = 0; j < triangle.get(i).size(); j++) {
+                dp[j] = triangle.get(i).get(j) + Math.min(dp[j], dp[j + 1]);
             }
-        });
-        t.start();
-        TimeUnit.SECONDS.sleep(3);
-        run = false; // 如果不加volatile，线程t不会如预想的停下来
+        }
+        return dp[0];
     }
 }
-
