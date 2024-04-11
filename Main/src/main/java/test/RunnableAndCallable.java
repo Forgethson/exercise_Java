@@ -32,7 +32,8 @@ public class RunnableAndCallable {
             }
         });
 
-        // 构造FutureTask，传入带返回值的Callable匿名类
+        // ---------- Callable ----------
+        // 用法1：构造FutureTask，传入带返回值的Callable匿名类，然后提交task
         FutureTask<Integer> task = new FutureTask<>(new Callable<Integer>() {
             @Override
             public Integer call() throws InterruptedException {
@@ -42,7 +43,17 @@ public class RunnableAndCallable {
         });
         pool.submit(task);
         System.out.println(task.get());
+
+        // 用法2：直接提交Callable匿名类，返回Future
+        Future<String> future = pool.submit(new Callable<String>() {
+            @Override
+            public String call() throws Exception {
+                TimeUnit.SECONDS.sleep(3);
+                return "123";
+            }
+        });
     }
+
 
     // 测试是否支持异常
     public static void testException(ExecutorService pool) throws Exception {
