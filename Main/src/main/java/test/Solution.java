@@ -15,7 +15,7 @@ class Solution {
                 dp[j] = triangle.get(i).get(j) + Math.min(dp[j], dp[j + 1]);
             }
         }
-        int x = 11221;
+        int x = 112111;
         return dp[0];
     }
 }
