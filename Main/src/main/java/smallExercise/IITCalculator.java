@@ -84,13 +84,14 @@ public class IITCalculator {
     }
 
     public static void main(String[] args) {
-        IITCalculator iitCalculator = new IITCalculator(26000, 26000 * 3, 1500);
+        IITCalculator iitCalculator = new IITCalculator(26800, 26000 * 3, 1500);
         System.out.println("奖金在一起算");
         iitCalculator.calculate1();
         System.out.println("---------------");
-        IITCalculator iitCalculator2 = new IITCalculator(26000, 26000 * 3, 1500);
+        IITCalculator iitCalculator2 = new IITCalculator(26800, 26000 * 3, 1500);
         System.out.println("奖金不一起算");
         iitCalculator2.calculate2();
+        System.out.println("公积金 = 3120 * 2 * 12 = 74880");
 
     }
 }
