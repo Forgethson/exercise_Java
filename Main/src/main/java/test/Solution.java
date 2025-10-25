@@ -1,21 +1,19 @@
 package test;
 
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
+import java.util.Map;
 
 class Solution {
-    public int minimumTotal(List<List<Integer>> triangle) {
-        int[] dp = new int[triangle.size() + 1];
-        int y = 1;
-        for (int i = triangle.size() - 1; i >= 0; i--) {
-            for (int j = 0; j < triangle.get(i).size(); j++) {
-                dp[j] = triangle.get(i).get(j) + Math.min(dp[j], dp[j + 1]);
+    public int[] twoSum(int[] nums, int target) {
+        // <num, idx>
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (map.containsKey(target - nums[i])) {
+                return new int[]{map.get(target - nums[i]), i};
             }
+            map.put(nums[i], i);
         }
-        int x = 123456789;
-        return dp[0];
+        return null;
     }
 }

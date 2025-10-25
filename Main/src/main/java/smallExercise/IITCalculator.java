@@ -84,14 +84,22 @@ public class IITCalculator {
     }
 
     public static void main(String[] args) {
-        IITCalculator iitCalculator = new IITCalculator(26800, 26000 * 3, 1500);
+        // 基础月薪
+        double monthlyBaseSalary = 28500. + 800.;
+        // 年终奖
+        double annualBonus = 28500. * 3;
+        // 特殊扣除（房租1500）
+        double monthlySpecialDeduction = 1500.;
+        // 月公积金
+        double annualTax = 28500. * 0.12 * 12;
+        IITCalculator iitCalculator = new IITCalculator(monthlyBaseSalary, annualBonus, monthlySpecialDeduction);
         System.out.println("奖金在一起算");
         iitCalculator.calculate1();
         System.out.println("---------------");
-        IITCalculator iitCalculator2 = new IITCalculator(26800, 26000 * 3, 1500);
+        IITCalculator iitCalculator2 = new IITCalculator(monthlyBaseSalary, annualBonus, monthlySpecialDeduction);
         System.out.println("奖金不一起算");
         iitCalculator2.calculate2();
-        System.out.println("公积金 = 3120 * 2 * 12 = 74880");
+        System.out.println("公积金 = 3420 * 2 * 12 = " + annualTax);
 
     }
 }
