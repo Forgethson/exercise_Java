@@ -1,4 +1,4 @@
-package designpattern.factory;
+package designpattern.factorymethod;
 
 public class WechatPayService implements PayService {
     @Override
